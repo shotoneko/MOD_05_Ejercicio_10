@@ -1,6 +1,7 @@
 package modulo_05.ejercicio_10.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -31,6 +32,7 @@ import modulo_05.ejercicio_10.R
 @Composable
 fun MyText(text: String){
     Text(
+
         text = text,
         modifier = Modifier
             .shadow(
@@ -40,6 +42,7 @@ fun MyText(text: String){
             .clip(RoundedCornerShape(8.dp))
             .background(Color.LightGray)
             .padding(8.dp)
+
     )
 }
 
@@ -50,22 +53,30 @@ fun MyTextField(
     label: String
 ) {
    TextField(
+        maxLines = 1,
         value = text,
         onValueChange = onValueChange,
         label = { Text(text = label) },
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
         modifier = Modifier
             .clip(RoundedCornerShape(8.dp))
+            .fillMaxWidth()
     )
 }
 
 @Composable
-fun MyButton(text: String){
+fun MyButton(
+        text: String,
+        onClick: () -> Unit)
+    {
     Button(
-        onClick = { },
-        colors= ButtonDefaults.buttonColors(containerColor = Color.Blue.copy(alpha = 0.5f))
+        onClick = onClick,
+        colors= ButtonDefaults.buttonColors(containerColor = Color.Blue.copy(alpha = 0.5f)),
+        modifier = Modifier.fillMaxWidth()
+
     ) {
         Text( text = text, color = Color.White)
+
     }
 
 }
@@ -77,7 +88,7 @@ fun MySegmentedButton() {
     val options = listOf("Hombre", "Mujer")
 
     MultiChoiceSegmentedButtonRow(
-        modifier = Modifier.padding(10.dp)
+        modifier = Modifier.fillMaxWidth()
     ) {
         options.forEachIndexed { index, label ->
             SegmentedButton(

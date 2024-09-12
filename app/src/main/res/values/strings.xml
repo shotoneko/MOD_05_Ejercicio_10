@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">Ejercicio_10</string>
+    <string name="app_name">Ejercicio 10</string>
     <string name="tituloApp">Calculadora de IMC ACME</string>
     <string name="edad">Edad</string>
     <string name="peso">Peso (Kg)</string>
     <string name="altura">Altura (cms)</string>
-    <string name="calcular">Calcular mi IMC</string>
+    <string name="calcular">Tu IMC es: </string>
 </resources>
